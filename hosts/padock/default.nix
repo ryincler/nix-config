@@ -18,6 +18,7 @@ in {
     ./hardware-configuration.nix
   ];
 
+  zerotierone.enable = true;
   steam.enable = true;
   hyprland.enable = true;
   programs.hyprland.xwayland.enable = lib.mkForce false;
@@ -191,10 +192,6 @@ in {
 
     displayManager = {
       ly.enable = true;
-    };
-
-    zerotierone = {
-      enable = true;
     };
 
     pipewire = {
