@@ -1,6 +1,8 @@
 {
   system.stateVersion = "24.05";
 
+  networking.hostName = "padock";
+
   nixpkgs.hostPlatform = {
     #gcc.arch = "skylake";
     #gcc.tune = "skylake";

@@ -88,8 +88,6 @@ in {
     };
   };
 
-  networking.hostName = "padock"; # Define your hostname.
-
   networking = {
     networkmanager.enable = true;
   };
