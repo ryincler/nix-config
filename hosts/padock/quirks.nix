@@ -24,7 +24,7 @@
       PL1_Duration_s: 28
       PL2_Tdp_W: 44
       PL2_Duration_S: 0.002
-      Trip_Temp_C: 95
+      Trip_Temp_C: 90
       # Set HWP energy performance hints to 'performance' on high load (EXPERIMENTAL)
       # Uncomment only if you really want to use it
       # HWP_Mode: False
