@@ -18,6 +18,9 @@ in {
     programs.nvf = {
       enable = true;
       settings.vim = {
+        autopairs.nvim-autopairs.enable = true;
+        autocomplete.nvim-cmp.enable = true;
+        snippets.luasnip.enable = true;
         lsp.enable = true;
         syntaxHighlighting = true;
 
@@ -45,6 +48,10 @@ in {
           };
           nix = {
             enable = true;
+          };
+          csharp = {
+            enable = true;
+            lsp.server = "omnisharp";
           };
         };
       };
