@@ -1,4 +1,5 @@
 {
+  hardware.bluetooth.powerOnBoot = false; # Power savings
   services.throttled = {
     enable = true;
 
