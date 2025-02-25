@@ -19,7 +19,7 @@ in {
   ];
 
   zerotierone.enable = true;
-  steam.enable = true;
+  steam.enable = false;
   hyprland.enable = true;
   programs.hyprland.xwayland.enable = lib.mkForce false;
 
