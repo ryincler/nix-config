@@ -13,4 +13,10 @@ in {
       ./padock
     ];
   };
+
+  terra = nixosSystem {
+    system = "x86_64-linux";
+    specialArgs = {inherit inputs;};
+    modules = [ ./terra ];
+  };
 }
