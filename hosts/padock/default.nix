@@ -12,9 +12,15 @@
   optimizeNormalFlags = pkg: optimizeWithFlags pkg ["-O2" "-march=skylake" "-flto" "-pipe"];
 in {
   imports = [
-    # Include the results of the hardware scan.
+    ../../modules/programs/nvf.nix
+    ../../modules # TODO: remove usages of ../ imports
     ./hardware-configuration.nix
   ];
+
+  hyprland.enable = true;
+  programs.hyprland.xwayland.enable = lib.mkForce false;
+
+  nvf.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {
@@ -171,52 +177,12 @@ in {
 
     nano.enable = false;
 
-    hyprland = {
-      enable = true;
-      xwayland.enable = false;
-      package = optimizeNormalFlags inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    };
-
     tmux.enable = true;
 
     steam = {
       enable = true;
     };
 
-    nvf = {
-      enable = true;
-      settings.vim = {
-        lsp.enable = true;
-        syntaxHighlighting = true;
-
-        options = {
-          expandtab = true;
-          tabstop = 2;
-          softtabstop = 2;
-          shiftwidth = 2;
-          backup = false;
-          writebackup = true;
-          swapfile = true;
-        };
-
-        languages = {
-          enableLSP = true;
-          enableFormat = true;
-          enableTreesitter = true;
-          enableExtraDiagnostics = true;
-          markdown.enable = true;
-          bash.enable = true;
-          java.enable = true;
-          ts = {
-            enable = true;
-            format.enable = true;
-          };
-          nix = {
-            enable = true;
-          };
-        };
-      };
-    };
   };
 
   console.useXkbConfig = true;

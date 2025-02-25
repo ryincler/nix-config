@@ -9,7 +9,6 @@ in {
     system = "x86_64-linux";
     specialArgs = {inherit inputs;};
     modules = [
-      inputs.nvf.nixosModules.default
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
       ./padock
     ];
