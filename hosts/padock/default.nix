@@ -117,7 +117,6 @@ in {
       mpv
       acpi
       btop
-      brightnessctl
       libreoffice
       moonlight-qt
     ];
@@ -137,13 +136,6 @@ in {
     pkgs.lf
     pkgs.git
     pkgs.ripgrep
-    pkgs.slurp
-    pkgs.grim
-    pkgs.wl-clipboard
-    pkgs.xdg-utils
-    pkgs.catppuccin-cursors.mochaSky
-
-    inputs.swww.packages.${pkgs.system}.swww
   ];
 
   networking.firewall.enable = false; 
@@ -221,12 +213,4 @@ in {
 
   qt.style = ["adwaita-dark"];
 
-  xdg = {
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
-    };
-  };
 }
