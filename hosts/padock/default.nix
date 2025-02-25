@@ -12,6 +12,7 @@
   optimizeNormalFlags = pkg: optimizeWithFlags pkg ["-O2" "-march=skylake" "-flto" "-pipe"];
 in {
   imports = [
+    ./system.nix
     ./quirks.nix
     ../../modules # TODO: remove usages of ../ imports
     ./hardware-configuration.nix
@@ -29,12 +30,6 @@ in {
     })
   ];
 
-  nixpkgs.hostPlatform = {
-    #gcc.arch = "skylake";
-    #gcc.tune = "skylake";
-    system = "x86_64-linux";
-  };
-
   documentation = {
     dev.enable = true;
   };
@@ -42,13 +37,6 @@ in {
   nix = {
     settings = {
       experimental-features = "nix-command flakes";
-      system-features = [
-        "nixos-test"
-        "benchmark"
-        "big-parallel"
-        "kvm"
-        "gccarch-skylake"
-      ];
       auto-optimise-store = true;
 
       # Cachix for Hyprland setup
@@ -82,14 +70,10 @@ in {
 
   boot = {
     # Linux kernel version
-    /*
     kernelPackages = pkgs.linuxPackagesFor (
-      optimizeWithFlags pkgs.linuxKernel.kernels.linux_zen ["-O2" "-march=skylake" "-flto" "-pipe"]
+      optimizeWithFlags pkgs.linuxKernel.kernels.linux_zen [ "-O2" "-march=skylake" "-pipe" ]
     );
-    */
-
-    kernelPackages = pkgs.linuxPackages_zen;
-    #kernelPackages = pkgs.linuxPackages_latest;
+    #kernelPackages = pkgs.linuxPackages_zen;
 
     kernelParams = [
       "quiet"
@@ -163,8 +147,6 @@ in {
   ];
 
   networking.firewall.enable = false; 
-
-  system.stateVersion = "24.05";
 
   programs = {
     nh = {
@@ -244,7 +226,6 @@ in {
       enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
-        #xdg-desktop-portal-hyprland
       ];
     };
   };
