@@ -15,6 +15,7 @@ in
     inputs.aagl.nixosModules.default
   ];
 
+  nvidia.enable = true;
   zerotierone.enable = true;
   steam.enable = true;
   hyprland.enable = true;
@@ -57,19 +58,8 @@ in
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [
       "quiet"
-      # For suspend/wakeup issues with NVIDIA
-      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     ];
 
-    kernelModules = [
-      "nvidia"
-      "nvidia_modeset"
-      "nvidia_drm"
-      # Something in nixpkgs is bugged so that nvidia_uvm does not load normally 
-      # without this kernel param.
-      "nvidia_uvm"
-    ];
-    
     # Bootloader
     loader = {
       systemd-boot.enable = true;
@@ -150,33 +140,6 @@ in
   console.useXkbConfig = true;
 
   hardware = {
-  	nvidia = {
-      open = true;
-      # For suspend/wakeup issues
-      powerManagement = {
-        enable = true;
-      };
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
-      
-      # use patched version of driver for NVENC and NVFBC
-      /*
-      package = pkgs.nvidia-patch.patch-nvenc(
-        pkgs.nvidia-patch.patch-fbc config.boot.kernelPackages.nvidiaPackages.beta
-      );
-*/
-      /*
-      package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-        version = "570.86.16";
-        sha256_64bit = "sha256-RWPqS7ZUJH9JEAWlfHLGdqrNlavhaR1xMyzs8lJhy9U=";
-        sha256_aarch64 = "";
-        openSha256 = "sha256-/tM3n9huz1MTE6KKtTCBglBMBGGL/GOHi5ZSUag4zXA";
-        settingsSha256 = "";
-        persistencedSha256 = "";
-      };
-      */
-      nvidiaSettings = false;
-    };
-
 
     graphics = { # Previously the OpenGL module
       enable = true;
@@ -219,9 +182,6 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
-    xserver.videoDrivers = ["nvidia"];
-
   };
 
   # Make Electron and Chromium apps to use Wayland
