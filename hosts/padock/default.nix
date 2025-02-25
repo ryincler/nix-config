@@ -13,11 +13,11 @@
 in {
   imports = [
     ./quirks.nix
-    ../../modules/programs/nvf.nix
     ../../modules # TODO: remove usages of ../ imports
     ./hardware-configuration.nix
   ];
 
+  steam.enable = true;
   hyprland.enable = true;
   programs.hyprland.xwayland.enable = lib.mkForce false;
 
@@ -179,10 +179,6 @@ in {
     nano.enable = false;
 
     tmux.enable = true;
-
-    steam = {
-      enable = true;
-    };
 
   };
 
