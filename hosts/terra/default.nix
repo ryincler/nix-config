@@ -123,6 +123,10 @@ in
   virtualisation.libvirtd.enable = true;
 
   programs = {
+    nh = {
+      enable = true;
+      flake = "/home/ry/nix-config/";
+    };
 
     virt-manager.enable = true;
 
