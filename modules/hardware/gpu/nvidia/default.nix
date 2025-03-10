@@ -16,7 +16,7 @@ in {
     };
 
     hardware.nvidia = {
-      powerManagement.enable = true;
+      powerManagement.enable = mkDefault true;
       open = mkDefault true;
       package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
       nvidiaSettings = mkDefault false;
@@ -34,6 +34,11 @@ in {
         "nvidia_drm"
         "nvidia_uvm"
       ];
+    };
+
+    nix.settings = {
+      substituters = [ "https://nix-community.cachix.org" ];
+      trusted-public-keys = [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
     };
   };
 
