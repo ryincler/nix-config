@@ -4,5 +4,6 @@
     ./networking
     ./hardware
     ./hyprland.nix
+    ./nix
   ];
 }
