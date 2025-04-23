@@ -19,19 +19,25 @@ in {
       package = mkDefault hyprlandPackage;
     };
 
-    environment.systemPackages = with pkgs; [
-      wl-clipboard # maybe some of these packages can be moved for a more general config
-      xdg-utils
-      grim
-      slurp
-      catppuccin-cursors.mochaSky
-      brightnessctl
-    ] ++ [inputs.swww.packages.${pkgs.system}.swww]; # TODO: this is ugly 
+    environment = {
+      systemPackages = with pkgs; [
+        wl-clipboard # maybe some of these packages can be moved for a more general config
+        xdg-utils
+        grim
+        slurp
+        catppuccin-cursors.mochaSky
+        brightnessctl
+        fuzzel
+      ] ++ [inputs.swww.packages.${pkgs.system}.swww]; # TODO: this is ugly 
+
+      sessionVariables.NIXOS_OZONE_WL = "1";
+    };
 
     services.displayManager.sessionPackages = [hyprlandPackage];
 
     xdg.portal = {
       enable = true;
+      xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
