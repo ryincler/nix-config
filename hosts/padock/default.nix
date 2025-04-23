@@ -7,6 +7,7 @@
   optimizeWithFlags = pkg: flags:
     pkg.overrideAttrs (old: {
       NIX_CMAKE_COMPILE = [old.NIX_CMAKE_COMPILE or ""] ++ flags;
+      NIX_ENFORCE_NO_NATIVE = false;
     });
 
   optimizeNormalFlags = pkg: optimizeWithFlags pkg ["-O2" "-march=skylake" "-flto" "-pipe"];
@@ -71,10 +72,12 @@ in {
 
   boot = {
     # Linux kernel version
+    /*
     kernelPackages = pkgs.linuxPackagesFor (
-      optimizeWithFlags pkgs.linuxKernel.kernels.linux_zen [ "-O2" "-march=skylake" "-pipe" ]
+      optimizeWithFlags pkgs.linuxKernel.kernels.linux_zen ["-O2" "-march=skylake" "-pipe"]
     );
-    #kernelPackages = pkgs.linuxPackages_zen;
+    */
+    kernelPackages = pkgs.linuxPackages_zen;
 
     kernelParams = [
       "quiet"
@@ -137,7 +140,7 @@ in {
     pkgs.ripgrep
   ];
 
-  networking.firewall.enable = false; 
+  networking.firewall.enable = false;
 
   programs = {
     nh = {
@@ -152,7 +155,6 @@ in {
     nano.enable = false;
 
     tmux.enable = true;
-
   };
 
   console.useXkbConfig = true;
@@ -166,11 +168,7 @@ in {
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vaapiVdpau
-        vpl-gpu-rt
         intel-media-driver
-
-        intel-compute-runtime
       ];
     };
   };
@@ -207,5 +205,4 @@ in {
   };
 
   qt.style = ["adwaita-dark"];
-
 }
