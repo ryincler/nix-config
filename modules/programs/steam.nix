@@ -18,5 +18,7 @@ in {
         pkgs.proton-ge-bin.steamcompattool
       ];
     };
+
+    environment.systemPackages = [ pkgs.mangohud ];
   };
 }
