@@ -22,13 +22,24 @@ in {
         open = mkDefault true;
         package = mkDefault config.boot.kernelPackages.nvidiaPackages.beta;
         nvidiaSettings = mkDefault false;
+        videoAcceleration = mkForce false; # overriding the package
       };
 
       graphics = {
         enable = true;
         enable32Bit = true;
         extraPackages = with pkgs; [
-          nvidia-vaapi-driver
+          # TODO: remove once commit for 575 driver fix lands in nixpkgs
+          (nvidia-vaapi-driver.overrideAttrs {
+            version = "master";
+            src = fetchFromGitHub {
+              owner = "elFarto";
+              repo = "nvidia-vaapi-driver";
+              rev = "master";
+              sha256 = "sha256-6s0HB4o7Y0j6A8uADhsgC4zmvVVMtH0MSHX97jbqarA=";
+            };
+          })
+          #nvidia-vaapi-driver
         ];
       };
     };
