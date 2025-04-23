@@ -35,10 +35,10 @@
       Disable_BDPROCHOT: False
 
       [UNDERVOLT]
-      CORE: -105 
-      CACHE: -105
+      CORE: -106
+      CACHE: -106
       GPU: -95
-      UNCORE: -110
+      UNCORE: -112
       ANALOGIO: 0
     '';
   };
