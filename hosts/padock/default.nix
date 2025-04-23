@@ -199,10 +199,5 @@ in {
     };
   };
 
-  # Make Electron and Chromium apps to use Wayland
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
-
   qt.style = ["adwaita-dark"];
 }
