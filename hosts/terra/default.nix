@@ -1,7 +1,5 @@
 {
   inputs,
-  config,
-  lib,
   pkgs,
   ...
 }: let
@@ -19,11 +17,16 @@ in {
     inputs.aagl.nixosModules.default
   ];
 
-  nvidia.enable = true;
   zerotierone.enable = true;
-  modules.display.wm.wayland.hyprland.enable = true;
-  modules.programs.gaming.steam.enable = true;
-  modules.programs.editors.neovim.enable = true;
+  modules = {
+    hardware.gpu.nvidia.enable = true;
+    display.wm.wayland.hyprland.enable = true;
+
+    programs = {
+      gaming.steam.enable = true;
+      editors.neovim.enable = true;
+    };
+  };
 
   nixpkgs.overlays = [
     (final: prev: {

@@ -4,13 +4,18 @@
   config,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkDefault mkForce mkMerge;
+  inherit (lib) mkOption mkIf mkDefault mkForce mkMerge;
+  cfg = config.modules.hardware.gpu.nvidia;
 in {
   options = {
-    nvidia.enable = mkEnableOption "nvidia module";
+    modules.hardware.gpu.nvidia.enable = mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enables support for NVidia GPUs.";
+    };
   };
 
-  config = mkIf config.nvidia.enable {
+  config = mkIf cfg.enable {
     nixpkgs.config = {
       allowUnfree = mkForce true;
       cudaSupport = mkDefault true;
@@ -47,23 +52,17 @@ in {
     services.xserver.videoDrivers = ["nvidia"];
 
     boot = {
-      kernelParams = [
-        "nvidia.NVreg_UsePageAttributeTable=1"
-        "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      kernelParams = mkMerge [
+        [
+          "nvidia.NVreg_UsePageAttributeTable=1"
+          "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+        ]
       ];
-      /*
-      kernelModules = [
-        "nvidia"
-        "nvidia_modeset"
-        "nvidia_drm"
-        "nvidia_uvm"
-      ];
-      */
     };
 
     nix.settings = {
-      substituters = ["https://nix-community.cachix.org"];
-      trusted-public-keys = ["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="];
+      substituters = mkMerge [["https://nix-community.cachix.org"]];
+      trusted-public-keys = mkMerge [["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="]];
     };
   };
 }
