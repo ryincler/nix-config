@@ -20,11 +20,9 @@ in {
   ];
 
   zerotierone.enable = true;
-  steam.enable = false;
   hyprland.enable = true;
-  programs.hyprland.xwayland.enable = lib.mkForce false;
 
-  nvf.enable = true;
+  modules.programs.editors.neovim.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {

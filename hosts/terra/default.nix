@@ -21,9 +21,9 @@ in {
 
   nvidia.enable = true;
   zerotierone.enable = true;
-  steam.enable = true;
+  modules.programs.gaming.steam.enable = true;
   hyprland.enable = true;
-  nvf.enable = true;
+  modules.programs.editors.neovim.enable = true;
 
   nixpkgs.overlays = [
     (final: prev: {

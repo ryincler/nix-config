@@ -1,6 +1,6 @@
 {
   imports = [
-    ./nvf.nix
-    ./steam.nix
+    ./editors
+    ./gaming
   ];
 }

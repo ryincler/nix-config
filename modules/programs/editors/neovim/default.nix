@@ -1,20 +1,24 @@
 {
   inputs,
-  pkgs,
   config,
   lib,
   ...
 }: let
-  inherit (lib) mkEnableOption mkIf mkForce;
+  inherit (lib) mkOption mkIf;
+  cfg = config.modules.programs.editors.neovim;
 in {
   imports = [
     inputs.nvf.nixosModules.default
   ];
   options = {
-    nvf.enable = mkEnableOption "Nvim config using nvf";
+    modules.programs.editors.neovim.enable = mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enables neovim with nvf config.";
+    };
   };
 
-  config = mkIf config.nvf.enable {
+  config = mkIf cfg.enable {
     programs.nvf = {
       enable = true;
       settings.vim = {
@@ -42,17 +46,9 @@ in {
           markdown.enable = true;
           bash.enable = true;
           java.enable = true;
-          ts = {
-            enable = true;
-            format.enable = true;
-          };
-          nix = {
-            enable = true;
-          };
-          csharp = {
-            enable = true;
-            lsp.server = "omnisharp";
-          };
+          ts.enable = true;
+          nix.enable = true;
+          csharp.enable = true;
         };
       };
     };
