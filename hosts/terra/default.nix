@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   optimizeWithFlags = pkg: flags:
     pkg.overrideAttrs (old: {
       NIX_CFLAGS_COMPILE = [(old.NIX_CFLAGS_COMPILE or "")] ++ flags;
@@ -13,8 +9,6 @@ in {
     ./hardware-configuration.nix
     ./system.nix
     ../../modules
-
-    inputs.aagl.nixosModules.default
   ];
 
   modules = {
@@ -27,7 +21,10 @@ in {
     display.wm.wayland.hyprland.enable = true;
 
     programs = {
-      gaming.steam.enable = true;
+      gaming = {
+        steam.enable = true;
+        aagl.enable = true;
+      };
       editors.neovim.enable = true;
     };
   };
@@ -138,10 +135,6 @@ in {
     };
 
     virt-manager.enable = true;
-
-    # AAGL stuff
-    anime-game-launcher.enable = true;
-    honkers-railway-launcher.enable = true;
 
     nano.enable = false;
 
