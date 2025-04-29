@@ -15,7 +15,6 @@ in {
   imports = [
     ./system.nix
     ./quirks.nix
-    ../../modules # TODO: remove usages of ../ imports
     ./hardware-configuration.nix
   ];
 

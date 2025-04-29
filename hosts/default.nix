@@ -11,12 +11,16 @@ in {
     modules = [
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
       ./padock
+      ../modules
     ];
   };
 
   terra = nixosSystem {
     system = "x86_64-linux";
     specialArgs = {inherit inputs;};
-    modules = [ ./terra ];
+    modules = [
+      ./terra
+      ../modules
+    ];
   };
 }
