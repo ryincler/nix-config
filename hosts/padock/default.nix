@@ -20,8 +20,8 @@ in {
   ];
 
   zerotierone.enable = true;
-  hyprland.enable = true;
 
+  modules.display.wm.wayland.hyprland.enable = true;
   modules.programs.editors.neovim.enable = true;
 
   nixpkgs.overlays = [

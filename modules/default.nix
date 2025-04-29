@@ -3,7 +3,7 @@
     ./programs
     ./networking
     ./hardware
-    ./hyprland.nix
+    ./display
     ./nix
   ];
 }
