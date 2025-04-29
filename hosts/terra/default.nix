@@ -18,7 +18,11 @@ in {
   ];
 
   modules = {
-    networking.zerotierone.enable = true;
+    networking = {
+      zerotierone.enable = true;
+      sunshine.enable = true;
+    };
+
     hardware.gpu.nvidia.enable = true;
     display.wm.wayland.hyprland.enable = true;
 
@@ -166,12 +170,6 @@ in {
     };
 
     displayManager.ly.enable = true;
-
-    sunshine = {
-      enable = true;
-      autoStart = true;
-      capSysAdmin = true;
-    };
 
     pipewire = {
       enable = true;
