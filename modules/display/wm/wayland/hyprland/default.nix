@@ -5,7 +5,7 @@
   config,
   ...
 }: let
-  inherit (lib) mkOption mkDefault mkIf;
+  inherit (lib) mkOption mkDefault mkIf mkMerge;
   hyprlandPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   cfg = config.modules.display.wm.wayland.hyprland;
 in {
@@ -48,6 +48,12 @@ in {
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
+    };
+
+    nix.settings = {
+      # Cachix for Hyprland setup
+      substituters = mkMerge [["https://hyprland.cachix.org"]];
+      trusted-public-keys = mkMerge [["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="]];
     };
   };
 }
