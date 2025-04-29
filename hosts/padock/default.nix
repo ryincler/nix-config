@@ -19,10 +19,11 @@ in {
     ./hardware-configuration.nix
   ];
 
-  zerotierone.enable = true;
-
-  modules.display.wm.wayland.hyprland.enable = true;
-  modules.programs.editors.neovim.enable = true;
+  modules = {
+    networking.zerotierone.enable = true;
+    display.wm.wayland.hyprland.enable = true;
+    programs.editors.neovim.enable = true;
+  };
 
   nixpkgs.overlays = [
     (final: prev: {

@@ -1,5 +1,5 @@
 {
   imports = [
-    ./zerotierone.nix
+    ./zerotierone
   ];
 }

@@ -17,8 +17,8 @@ in {
     inputs.aagl.nixosModules.default
   ];
 
-  zerotierone.enable = true;
   modules = {
+    networking.zerotierone.enable = true;
     hardware.gpu.nvidia.enable = true;
     display.wm.wayland.hyprland.enable = true;
 
