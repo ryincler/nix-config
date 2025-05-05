@@ -16,7 +16,7 @@ in {
       sunshine.enable = true;
     };
 
-    hardware.gpu.nvidia.enable = true;
+    hardware.gpu.amd.enable = true;
     display.wm.wayland.hyprland.enable = true;
 
     programs = {
@@ -29,14 +29,6 @@ in {
   };
 
   nixpkgs.overlays = [
-    (final: prev: {
-      sunshine = prev.sunshine.override {cudaSupport = true;};
-    })
-    /*
-    (final: prev: {
-      blender = prev.blender.override { cudaSupport = true; };
-    })
-    */
   ];
 
   nix = {
@@ -104,7 +96,6 @@ in {
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    #cudaSupport = true;
   };
 
   # List packages installed in system profile. To search, run:
