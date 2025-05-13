@@ -21,7 +21,10 @@ in {
   modules = {
     networking.zerotierone.enable = true;
     display.wm.wayland.hyprland.enable = true;
-    programs.editors.neovim.enable = true;
+    programs = {
+      editors.neovim.enable = true;
+      terminal.foot.enable = true;
+    };
   };
 
   nixpkgs.overlays = [
