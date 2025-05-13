@@ -19,9 +19,6 @@
 
     nvf.url = "github:notashelf/nvf";
 
-    aagl = {
-      url = "github:ezkea/aagl-gtk-on-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    aagl.url = "github:ezkea/aagl-gtk-on-nix";
   };
 }
