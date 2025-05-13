@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (lib) mkOption mkIf mkDefault mkForce mkMerge;
+  inherit (lib) mkOption mkIf mkDefault mkForce;
   cfg = config.modules.hardware.gpu.nvidia;
 in {
   options = {
@@ -52,17 +52,15 @@ in {
     services.xserver.videoDrivers = ["nvidia"];
 
     boot = {
-      kernelParams = mkMerge [
-        [
-          "nvidia.NVreg_UsePageAttributeTable=1"
-          "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-        ]
+      kernelParams = [
+        "nvidia.NVreg_UsePageAttributeTable=1"
+        "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
       ];
     };
 
     nix.settings = {
-      substituters = mkMerge [["https://nix-community.cachix.org"]];
-      trusted-public-keys = mkMerge [["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="]];
+      substituters = ["https://nix-community.cachix.org"];
+      trusted-public-keys = ["nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="];
     };
   };
 }
