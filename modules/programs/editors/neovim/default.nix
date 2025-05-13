@@ -42,6 +42,7 @@ in {
           enableFormat = true;
           enableTreesitter = true;
           enableExtraDiagnostics = true;
+          clang.enable = true;
           markdown.enable = true;
           bash.enable = true;
           java.enable = true;
