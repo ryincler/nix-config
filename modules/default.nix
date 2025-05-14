@@ -5,5 +5,6 @@
     ./hardware
     ./display
     ./nix
+    ./gui
   ];
 }

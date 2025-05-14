@@ -25,6 +25,10 @@ in {
       editors.neovim.enable = true;
       terminal.foot.enable = true;
     };
+    gui.themes.fontconfig = {
+      enable = true;
+      useMonoEverywhere = true;
+    };
   };
 
   nixpkgs.overlays = [
