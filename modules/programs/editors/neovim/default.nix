@@ -19,36 +19,48 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.sessionVariables = {
+      "EDITOR" = "nvim";
+    };
     programs.nvf = {
       enable = true;
-      settings.vim = {
-        autopairs.nvim-autopairs.enable = true;
-        autocomplete.nvim-cmp.enable = true;
-        snippets.luasnip.enable = true;
-        lsp.enable = true;
-        syntaxHighlighting = true;
+      settings = {
+        vim = {
+          theme = {
+            enable = true;
+            name = "gruvbox";
+            style = "dark";
+            transparent = true;
+          };
 
-        options = {
-          expandtab = true;
-          tabstop = 2;
-          softtabstop = 2;
-          shiftwidth = 2;
-          backup = false;
-          writebackup = true;
-          swapfile = true;
-        };
+          statusline.lualine.enable = true;
+          autopairs.nvim-autopairs.enable = true;
+          autocomplete.nvim-cmp.enable = true;
+          snippets.luasnip.enable = true;
+          lsp.enable = true;
+          syntaxHighlighting = true;
 
-        languages = {
-          enableFormat = true;
-          enableTreesitter = true;
-          enableExtraDiagnostics = true;
-          clang.enable = true;
-          markdown.enable = true;
-          bash.enable = true;
-          java.enable = true;
-          ts.enable = true;
-          nix.enable = true;
-          csharp.enable = true;
+          options = {
+            expandtab = true;
+            tabstop = 2;
+            softtabstop = 2;
+            shiftwidth = 2;
+            backup = false;
+            writebackup = true;
+            swapfile = true;
+          };
+
+          languages = {
+            enableFormat = true;
+            enableTreesitter = true;
+            enableExtraDiagnostics = true;
+            clang.enable = true;
+            markdown.enable = true;
+            bash.enable = true;
+            java.enable = true;
+            ts.enable = true;
+            nix.enable = true;
+          };
         };
       };
     };
