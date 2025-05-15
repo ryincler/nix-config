@@ -33,6 +33,13 @@ in {
             transparent = true;
           };
 
+          diagnostics = {
+            enable = true;
+            config = {
+              virtual_lines = true;
+            };
+          };
+          git.enable = true;
           statusline.lualine.enable = true;
           autopairs.nvim-autopairs.enable = true;
           autocomplete.nvim-cmp.enable = true;
