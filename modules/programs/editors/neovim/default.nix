@@ -42,7 +42,9 @@ in {
           git.enable = true;
           statusline.lualine.enable = true;
           autopairs.nvim-autopairs.enable = true;
-          autocomplete.nvim-cmp.enable = true;
+          autocomplete = {
+            blink-cmp.enable = true;
+          };
           snippets.luasnip.enable = true;
           lsp.enable = true;
           syntaxHighlighting = true;
