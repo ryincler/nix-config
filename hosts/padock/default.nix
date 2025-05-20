@@ -19,6 +19,7 @@ in {
   ];
 
   modules = {
+    hardware.gpu.intel.enable = true;
     networking.zerotierone.enable = true;
     display.wm.wayland.hyprland.enable = true;
     programs = {
@@ -113,7 +114,6 @@ in {
     description = "ry";
     extraGroups = ["networkmanager" "wheel" "input"];
     packages = with pkgs; [
-      alacritty
       firefox
       fuzzel
       vesktop
@@ -165,13 +165,6 @@ in {
       enable = true;
     };
 
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver
-      ];
-    };
   };
 
   services = {

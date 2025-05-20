@@ -2,5 +2,6 @@
   imports = [
     ./nvidia
     ./amd
+    ./intel
   ];
 }
