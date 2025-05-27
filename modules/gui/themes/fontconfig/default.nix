@@ -22,19 +22,19 @@ in {
           serif = [
             (
               if cfg.useMonoEverywhere
-              then "Noto Sans Mono"
+              then "Iosevka"
               else "Noto Serif"
             )
           ];
           sansSerif = [
             (
               if cfg.useMonoEverywhere
-              then "Noto Sans Mono"
+              then "Iosevka"
               else "Noto Sans"
             )
           ];
           monospace = [
-            "Noto Sans Mono"
+            "Iosevka"
             "Symbols Nerd Font Mono"
           ];
           emoji = [
@@ -45,6 +45,8 @@ in {
 
       
       packages = with pkgs; [
+        iosevka
+        commit-mono
         noto-fonts
         noto-fonts-emoji
         nerd-fonts.symbols-only
