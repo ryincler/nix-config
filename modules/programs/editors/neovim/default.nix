@@ -54,6 +54,7 @@ in {
             tabstop = 2;
             softtabstop = 2;
             shiftwidth = 2;
+            colorcolumn = "80";
             backup = false;
             writebackup = true;
             swapfile = true;
