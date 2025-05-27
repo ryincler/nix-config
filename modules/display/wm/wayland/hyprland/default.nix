@@ -7,6 +7,7 @@
 }: let
   inherit (lib) mkOption mkDefault mkIf;
   hyprlandPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  swwwPackage = inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww;
   cfg = config.modules.display.wm.wayland.hyprland;
 in {
   options = {
@@ -34,7 +35,7 @@ in {
           catppuccin-cursors.mochaSky
           brightnessctl
           fuzzel
-          swww
+          swwwPackage
         ];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
