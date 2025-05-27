@@ -15,7 +15,7 @@
       PL1_Duration_s: 28
       PL2_Tdp_W: 44
       PL2_Duration_S: 0.002
-      Trip_Temp_C: 85
+      Trip_Temp_C: 80
       cTDP: 0
       Disable_BDPROCHOT: False
 
@@ -25,7 +25,7 @@
       PL1_Duration_s: 28
       PL2_Tdp_W: 44
       PL2_Duration_S: 0.002
-      Trip_Temp_C: 90
+      Trip_Temp_C: 80
       # Set HWP energy performance hints to 'performance' on high load (EXPERIMENTAL)
       # Uncomment only if you really want to use it
       # HWP_Mode: False
@@ -35,9 +35,9 @@
       Disable_BDPROCHOT: False
 
       [UNDERVOLT]
-      CORE: -106
-      CACHE: -106
-      GPU: -95
+      CORE: -107
+      CACHE: -107
+      GPU: -100
       UNCORE: -112
       ANALOGIO: 0
     '';
