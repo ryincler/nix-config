@@ -15,7 +15,8 @@
       url = "github:hyprwm/hyprland";
     };
 
-    swww.url = "github:lgfae/swww";
+    # Upstream nuked their nix package output
+    #swww.url = "github:lgfae/swww";
 
     nvf.url = "github:notashelf/nvf";
 

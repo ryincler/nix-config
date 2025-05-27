@@ -34,8 +34,8 @@ in {
           catppuccin-cursors.mochaSky
           brightnessctl
           fuzzel
-        ]
-        ++ [inputs.swww.packages.${pkgs.system}.swww]; # TODO: this is ugly
+          swww
+        ];
 
       sessionVariables.NIXOS_OZONE_WL = "1";
     };
