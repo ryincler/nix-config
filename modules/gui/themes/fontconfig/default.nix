@@ -6,6 +6,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.gui.themes.fontconfig;
+  monoFont = "Iosevka";
 in {
   options.modules.gui.themes.fontconfig = {
     enable = mkEnableOption "fonts";
@@ -22,19 +23,19 @@ in {
           serif = [
             (
               if cfg.useMonoEverywhere
-              then "Iosevka"
+              then monoFont
               else "Noto Serif"
             )
           ];
           sansSerif = [
             (
               if cfg.useMonoEverywhere
-              then "Iosevka"
+              then monoFont
               else "Noto Sans"
             )
           ];
           monospace = [
-            "Iosevka"
+            monoFont
             "Symbols Nerd Font Mono"
           ];
           emoji = [
@@ -43,7 +44,6 @@ in {
         };
       };
 
-      
       packages = with pkgs; [
         iosevka
         commit-mono
