@@ -38,8 +38,6 @@ in {
 
   nix = {
     settings = {
-      experimental-features = "nix-command flakes";
-      auto-optimise-store = true;
       system-features = ["benchmark" "big-parallel" "kvm" "nixos-test" "gccarch-znver4"];
 
       trusted-users = ["root" "ry"];
