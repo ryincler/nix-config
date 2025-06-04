@@ -118,6 +118,8 @@ in {
   virtualisation.libvirtd.enable = true;
 
   programs = {
+    corectrl.enable = true;
+
     nh = {
       enable = true;
       flake = "/home/ry/nix-config/";

@@ -14,6 +14,9 @@ in {
     };
   };
   config = mkIf cfg.enable {
+    # To be able to adjust voltage and clock in sysfs
+    boot.kernelParams = ["amdgpu.ppfeaturemask=0xffffffff"];
+
     hardware.graphics = {
       enable = true;
       enable32Bit = true;
