@@ -103,14 +103,11 @@ in {
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-    pkgs.lf
-    pkgs.git
-    pkgs.ripgrep
-    pkgs.ffmpeg
-    pkgs.hyprpolkitagent
-    #pkgs.catppuccin-cursors.mochaSky
-    pkgs.bibata-cursors
+  environment.systemPackages = with pkgs; [
+    lf
+    git
+    ripgrep
+    ffmpeg
   ];
 
   networking.firewall.enable = false;

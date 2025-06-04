@@ -28,6 +28,7 @@ in {
     environment = {
       systemPackages = with pkgs;
         [
+          hyprpolkitagent
           wl-clipboard # maybe some of these packages can be moved for a more general config
           xdg-utils
           grim
