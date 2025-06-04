@@ -32,8 +32,8 @@ in {
           xdg-utils
           grim
           slurp
-          catppuccin-cursors.mochaSky
           brightnessctl
+          bibata-cursors
           fuzzel
           swwwPackage
         ];
