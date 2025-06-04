@@ -46,7 +46,6 @@ in {
 
       packages = with pkgs; [
         iosevka
-        commit-mono
         noto-fonts
         noto-fonts-emoji
         nerd-fonts.symbols-only
