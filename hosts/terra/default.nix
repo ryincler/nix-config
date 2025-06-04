@@ -20,6 +20,7 @@ in {
     display.wm.wayland.hyprland.enable = true;
 
     programs = {
+      terminal.foot.enable = true;
       gaming = {
         steam.enable = true;
         aagl.enable = true;
