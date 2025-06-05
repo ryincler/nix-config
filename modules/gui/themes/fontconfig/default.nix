@@ -6,7 +6,7 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.gui.themes.fontconfig;
-  monoFont = "Iosevka";
+  monoFont = "Iosevka Fixed";
 in {
   options.modules.gui.themes.fontconfig = {
     enable = mkEnableOption "fonts";
@@ -45,7 +45,7 @@ in {
       };
 
       packages = with pkgs; [
-        iosevka
+        (pkgs.callPackage ./iosevka-fixed.nix {})
         noto-fonts
         noto-fonts-emoji
         nerd-fonts.symbols-only
