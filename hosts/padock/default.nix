@@ -76,7 +76,7 @@ in {
       optimizeWithFlags pkgs.linuxKernel.kernels.linux_zen ["-O2" "-march=skylake" "-pipe"]
     );
     */
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     kernelParams = [
       "quiet"
