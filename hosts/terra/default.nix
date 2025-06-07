@@ -86,7 +86,6 @@ in {
     extraGroups = ["video" "networkmanager" "wheel" "input" "libvirtd"];
     packages = with pkgs; [
       ani-cli
-      alacritty
       vesktop
       mpv
       lutris
@@ -116,6 +115,8 @@ in {
   virtualisation.libvirtd.enable = true;
 
   programs = {
+    niri.enable = true;
+
     corectrl.enable = true;
 
     nh = {
