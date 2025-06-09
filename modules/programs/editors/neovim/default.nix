@@ -40,7 +40,7 @@ in {
             };
           };
           git.enable = true;
-          statusline.lualine.enable = true;
+          statusline.lualine.enable = false;
           autopairs.nvim-autopairs.enable = true;
           autocomplete = {
             blink-cmp.enable = true;
