@@ -17,7 +17,13 @@ in {
     };
 
     hardware.gpu.amd.enable = true;
-    display.wm.wayland.hyprland.enable = true;
+    display.wm.wayland = {
+      hyprland.enable = true;
+      niri = {
+        enable = true;
+        xwayland.enable = true;
+      };
+    };
 
     programs = {
       terminal.foot.enable = true;
