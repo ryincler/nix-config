@@ -21,7 +21,13 @@ in {
   modules = {
     hardware.gpu.intel.enable = true;
     networking.zerotierone.enable = true;
-    display.wm.wayland.hyprland.enable = true;
+    display.wm.wayland = {
+      hyprland.enable = true;
+      niri = {
+        enable = true;
+        xwayland.enable = true;
+      };
+    };
     programs = {
       editors.neovim.enable = true;
       terminal.foot.enable = true;
