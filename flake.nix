@@ -12,13 +12,14 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     hyprland = {
-      url = "github:hyprwm/hyprland/v0.49.0";
+      url = "github:hyprwm/hyprland";
     };
 
     swww.url = "github:lgfae/swww";
 
     nvf.url = "github:notashelf/nvf";
 
+    #aagl.url = "github:ryincler/aagl-gtk-on-nix";
     aagl.url = "github:ezkea/aagl-gtk-on-nix";
 
     niri-flake.url = "github:sodiboo/niri-flake";
