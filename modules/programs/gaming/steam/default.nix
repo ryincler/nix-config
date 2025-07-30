@@ -22,7 +22,8 @@ in {
         pkgs.proton-ge-bin.steamcompattool
       ];
     };
-
-    environment.systemPackages = [pkgs.mangohud];
+    environment.systemPackages = with pkgs; [
+      gamescope
+    ];
   };
 }
