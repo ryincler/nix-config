@@ -8,6 +8,7 @@
   inherit (lib) mkOption mkDefault mkIf;
   hyprlandPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
   swwwPackage = inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww;
+  hyprlandNixpkgs = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   cfg = config.modules.display.wm.wayland.hyprland;
 in {
   options = {
@@ -21,8 +22,13 @@ in {
   config = mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
-      xwayland.enable = mkDefault true;
-      package = mkDefault hyprlandPackage;
+      xwayland.enable = true;
+      package = hyprlandPackage;
+    };
+
+    hardware.graphics = {
+      package = lib.mkOverride 1200 hyprlandNixpkgs.mesa;
+      package32 = lib.mkOverride 1200 hyprlandNixpkgs.pkgsi686Linux.mesa;
     };
 
     environment = {

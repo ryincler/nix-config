@@ -23,13 +23,16 @@ in {
 
     niri-flake.cache.enable = true;
 
-    environment = mkIf cfg.xwayland.enable {
+    environment = {
       systemPackages = with pkgs; [
-        xwayland-satellite
-      ];
-      sessionVariables = {
-        DISPLAY = ":0";
-      };
+        wl-clipboard
+        fuzzel
+        xdg-utils
+        inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
+      ] ++ lib.optionals cfg.xwayland.enable [xwayland-satellite];
+
+      sessionVariables.NIXOS_OZONE_WL = "1";
     };
+    services.displayManager.sessionPackages = [niriPkg];
   };
 }
