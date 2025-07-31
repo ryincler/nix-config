@@ -1,7 +1,7 @@
 {
   system.stateVersion = "24.05";
 
-  networking.hostName = "padock";
+  networking.hostName = "plaptop";
 
   nixpkgs.hostPlatform = {
     #gcc.arch = "skylake";

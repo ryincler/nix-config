@@ -1,6 +1,4 @@
 {
-  inputs,
-  lib,
   pkgs,
   ...
 }: let
@@ -22,7 +20,6 @@ in {
     hardware.gpu.intel.enable = true;
     networking.zerotierone.enable = true;
     display.wm.wayland = {
-      hyprland.enable = true;
       niri = {
         enable = true;
         xwayland.enable = true;
@@ -84,10 +81,7 @@ in {
     */
     kernelPackages = pkgs.linuxPackages_latest;
 
-    kernelParams = [
-      "quiet"
-      #"sysrq_always_enabled=1"
-    ];
+    kernelParams = [ ];
 
     # Bootloader
     loader = {
@@ -123,11 +117,8 @@ in {
       mpv
       acpi
       btop
-      libreoffice
       moonlight-qt
-    ];
-
-    openssh.authorizedKeys.keys = [
+      ripgrep
     ];
   };
 
@@ -138,10 +129,8 @@ in {
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
-    pkgs.lf
-    pkgs.git
-    pkgs.ripgrep
+  environment.systemPackages = with pkgs; [
+    git
   ];
 
   networking.firewall.enable = false;
@@ -157,8 +146,6 @@ in {
     };
 
     nano.enable = false;
-
-    tmux.enable = true;
   };
 
   console.useXkbConfig = true;
@@ -167,7 +154,6 @@ in {
     bluetooth = {
       enable = true;
     };
-
   };
 
   services = {

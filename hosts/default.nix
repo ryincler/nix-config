@@ -5,12 +5,11 @@
 }: let
   inherit (lib) nixosSystem;
 in {
-  padock = nixosSystem {
-    #system = "x86_64-linux";
+  plaptop = nixosSystem {
     specialArgs = {inherit inputs;};
     modules = [
       inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
-      ./padock
+      ./plaptop
       ../modules
     ];
   };
