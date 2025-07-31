@@ -28,6 +28,7 @@ in {
         wl-clipboard
         fuzzel
         xdg-utils
+        brightnessctl
         inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
       ] ++ lib.optionals cfg.xwayland.enable [xwayland-satellite];
 
