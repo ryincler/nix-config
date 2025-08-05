@@ -69,7 +69,11 @@ in {
             bash.enable = true;
             java.enable = true;
             ts.enable = true;
-            nix.enable = true;
+            nix = {
+              enable = true;
+              lsp.server = "nixd";
+              treesitter.enable = true;
+            };
           };
         };
       };
