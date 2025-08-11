@@ -5,11 +5,11 @@
 }:
 stdenv.mkDerivation rec {
   pname = "iosevka-fixed";
-  version = "33.2.6";
+  version = "33.2.8";
 
   src = fetchzip {
     url = "https://github.com/be5invis/Iosevka/releases/download/v${version}/SuperTTC-SGr-IosevkaFixed-${version}.zip";
-    sha256 = "sha256-a/YY9BgS7TNX1Gu/jrVOLqvAdMAVXrjKdk7PQ/UXWDw=";
+    sha256 = "sha256-iqYcV6TAgUe7f3BrupNFutwKG4HwLnViZvCUyC4NRWY=";
   };
 
   installPhase = ''
