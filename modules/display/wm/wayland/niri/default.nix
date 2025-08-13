@@ -25,6 +25,7 @@ in {
 
     environment = {
       systemPackages = with pkgs; [
+        bibata-cursors
         wl-clipboard
         fuzzel
         xdg-utils
@@ -35,5 +36,14 @@ in {
       sessionVariables.NIXOS_OZONE_WL = "1";
     };
     services.displayManager.sessionPackages = [niriPkg];
+
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+      ];
+    };
   };
 }
