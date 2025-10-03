@@ -89,7 +89,7 @@ in {
   users.users.ry = {
     isNormalUser = true;
     description = "ry";
-    extraGroups = ["video" "networkmanager" "wheel" "input" "libvirtd"];
+    extraGroups = ["video" "networkmanager" "wheel" "input" "libvirtd" "corectrl"];
     packages = with pkgs; [
       ani-cli
       vesktop
