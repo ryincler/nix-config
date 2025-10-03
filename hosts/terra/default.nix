@@ -64,9 +64,7 @@ in {
     );
     */
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "quiet"
-    ];
+    kernelParams = [];
 
     # Bootloader
     loader = {
