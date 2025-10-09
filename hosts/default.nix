@@ -22,4 +22,13 @@ in {
       ../modules
     ];
   };
+
+  ryou = nixosSystem {
+    system = "aarch64-linux";
+    specialArgs = {inherit inputs;};
+    modules = [
+      ./ryou
+      ../modules
+    ];
+  };
 }
