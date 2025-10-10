@@ -6,5 +6,6 @@
     ./display
     ./nix
     ./gui
+    ./services
   ];
 }

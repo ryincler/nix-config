@@ -4,6 +4,12 @@
     ./system.nix
   ];
 
+  modules = {
+    services = {
+      headscale.enable = true;
+    };
+  };
+
   nix.settings = {
     experimental-features = ["nix-command" "flakes"];
     auto-optimise-store = true;

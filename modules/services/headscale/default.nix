@@ -7,6 +7,9 @@
   inherit (lib) mkIf mkEnableOption;
   cfg = config.modules.services.headscale;
 in {
+  imports = [
+    ./dns.nix
+  ];
   options = {
     modules.services.headscale.enable = mkEnableOption "Headscale hosting";
   };
