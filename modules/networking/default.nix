@@ -2,5 +2,6 @@
   imports = [
     ./zerotierone
     ./sunshine
+    ./tailscale
   ];
 }
