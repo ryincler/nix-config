@@ -30,7 +30,11 @@
   };
   environment.systemPackages = with pkgs; [
     git
+    neovim
   ];
 
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+  };
 }
