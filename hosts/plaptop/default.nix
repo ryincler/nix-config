@@ -29,6 +29,9 @@ in {
       editors.neovim.enable = true;
       terminal.foot.enable = true;
     };
+    services = {
+      openssh.enable = true;
+    };
     gui.themes.fontconfig = {
       enable = true;
       useMonoEverywhere = true;
@@ -158,16 +161,6 @@ in {
 
   services = {
     blueman.enable = true;
-
-    openssh = {
-      enable = true;
-
-      settings = {
-        PermitRootLogin = "no";
-        # TODO disable pwd auth
-        PasswordAuthentication = true;
-      };
-    };
 
     displayManager = {
       ly.enable = true;
