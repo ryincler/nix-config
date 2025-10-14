@@ -6,6 +6,7 @@
 
   modules = {
     services = {
+      openssh.enable = true;
       headscale.enable = true;
     };
   };
@@ -32,9 +33,4 @@
     git
     neovim
   ];
-
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-  };
 }

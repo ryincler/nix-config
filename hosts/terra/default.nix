@@ -16,6 +16,10 @@ in {
       sunshine.enable = true;
     };
 
+    services = {
+      openssh.enable = true;
+    };
+
     hardware.gpu.amd.enable = true;
     display.wm.wayland = {
       hyprland.enable = true;
@@ -149,15 +153,6 @@ in {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
-    };
-
-    openssh = {
-      enable = true;
-
-      settings = {
-        PermitRootLogin = "no";
-        PasswordAuthentication = true;
-      };
     };
 
     displayManager.ly.enable = true;
