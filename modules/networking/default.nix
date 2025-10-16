@@ -3,5 +3,6 @@
     ./zerotierone
     ./sunshine
     ./tailscale
+    ./networkmanager
   ];
 }
