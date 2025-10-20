@@ -19,7 +19,6 @@
 
     nvf.url = "github:notashelf/nvf";
 
-    #aagl.url = "github:ryincler/aagl-gtk-on-nix";
     aagl.url = "github:ezkea/aagl-gtk-on-nix";
 
     niri-flake.url = "github:sodiboo/niri-flake";
