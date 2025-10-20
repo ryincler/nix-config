@@ -7,5 +7,6 @@
     ./nix
     ./gui
     ./services
+    ./security
   ];
 }
