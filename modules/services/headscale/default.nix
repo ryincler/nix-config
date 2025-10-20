@@ -21,8 +21,18 @@ in {
         port = 8080;
 
         settings = {
-          server_url = "http://140.238.143.51:8080";
+          server_url = "https://hs.ryincler.dev";
           metrics_listen_addr = "127.0.0.1:9090";
+        };
+      };
+      nginx.virtualHosts."hs.ryincler.dev" = {
+        forceSSL = true;
+        enableACME = true;
+        locations = {
+          "/" = {
+            proxyPass = "http://localhost:${toString config.services.headscale.port}";
+            proxyWebsockets = true;
+          };
         };
       };
     };
