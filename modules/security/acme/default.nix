@@ -15,9 +15,6 @@ in {
     security.acme = {
       acceptTerms = true;
       defaults.email = "ryincler@proton.me";
-      certs."ryincler.dev" = {
-        dnsProvider = "spaceship";
-      };
     };
 
   };
