@@ -2,5 +2,6 @@
   imports = [
     ./headscale
     ./openssh
+    ./nginx
   ];
 }
