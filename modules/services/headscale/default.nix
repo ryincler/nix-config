@@ -28,6 +28,7 @@ in {
       nginx.virtualHosts."hs.ryincler.dev" = {
         forceSSL = true;
         enableACME = true;
+        http3 = true;
         locations = {
           "/" = {
             proxyPass = "http://localhost:${toString config.services.headscale.port}";
