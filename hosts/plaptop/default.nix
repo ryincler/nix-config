@@ -133,6 +133,7 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
+    nautilus
   ];
 
   networking.firewall.enable = false;
@@ -165,8 +166,13 @@ in {
   services = {
     blueman.enable = true;
 
-    displayManager = {
-      ly.enable = true;
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd}/bin/agreety --cmd niri-session";
+        };
+      };
     };
 
     pipewire = {
