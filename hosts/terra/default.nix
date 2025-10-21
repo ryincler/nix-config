@@ -13,11 +13,12 @@ in {
   modules = {
     networking = {
       zerotierone.enable = true;
-      sunshine.enable = true;
+      tailscale.enable = true;
     };
 
     services = {
       openssh.enable = true;
+      sunshine.enable = true;
     };
 
     hardware.gpu.amd.enable = true;
@@ -155,7 +156,18 @@ in {
       openFirewall = true;
     };
 
-    displayManager.ly.enable = true;
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd}/bin/agreety --cmd hyprland";
+        };
+        initial_session = {
+          command = "hyprland";
+          user = "ry";
+        };
+      };
+    };
 
     pipewire = {
       enable = true;

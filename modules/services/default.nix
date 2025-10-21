@@ -3,5 +3,6 @@
     ./headscale
     ./openssh
     ./nginx
+    ./sunshine
   ];
 }

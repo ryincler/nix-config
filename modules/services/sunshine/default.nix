@@ -5,13 +5,13 @@
   ...
 }: let
   inherit (lib) mkOption mkIf;
-  cfg = config.modules.networking.sunshine;
+  cfg = config.modules.services.sunshine;
   
   sunshinePkg = pkgs.sunshine;
 
 in {
   options = {
-    modules.networking.sunshine.enable = mkOption {
+    modules.services.sunshine.enable = mkOption {
       type = lib.types.bool;
       default = false;
       description = "Enables desktop stream hosting using Sunshine.";
