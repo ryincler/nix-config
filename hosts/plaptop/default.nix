@@ -18,7 +18,9 @@ in {
 
   modules = {
     hardware.gpu.intel.enable = true;
-    networking.zerotierone.enable = true;
+    networking = {
+      tailscale.enable = true;
+    };
     display.wm.wayland = {
       niri = {
         enable = true;

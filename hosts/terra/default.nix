@@ -12,7 +12,6 @@ in {
 
   modules = {
     networking = {
-      zerotierone.enable = true;
       tailscale.enable = true;
     };
 
