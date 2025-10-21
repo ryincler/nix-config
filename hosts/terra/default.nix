@@ -13,6 +13,7 @@ in {
   modules = {
     networking = {
       tailscale.enable = true;
+      networkmanager.enable = true;
     };
 
     services = {
@@ -75,10 +76,6 @@ in {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-  };
-
-  networking = {
-    networkmanager.enable = true;
   };
 
   # Set your time zone.

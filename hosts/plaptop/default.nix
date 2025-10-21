@@ -20,6 +20,7 @@ in {
     hardware.gpu.intel.enable = true;
     networking = {
       tailscale.enable = true;
+      networkmanager.enable = true;
     };
     display.wm.wayland = {
       niri = {
@@ -93,10 +94,6 @@ in {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
-  };
-
-  networking = {
-    networkmanager.enable = true;
   };
 
   # Set your time zone.
