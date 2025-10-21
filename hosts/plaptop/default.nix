@@ -111,7 +111,7 @@ in {
   users.users.ry = {
     isNormalUser = true;
     description = "ry";
-    extraGroups = ["networkmanager" "wheel" "input"];
+    extraGroups = ["networkmanager" "wheel" "input" "wireshark"];
     packages = with pkgs; [
       firefox
       fuzzel
@@ -138,6 +138,10 @@ in {
   networking.firewall.enable = false;
 
   programs = {
+    wireshark = {
+      enable = true;
+      package = pkgs.wireshark;
+    };
     nh = {
       enable = true;
       flake = "/home/ry/nix-config/";
