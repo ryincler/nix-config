@@ -59,7 +59,7 @@ in {
     distributedBuilds = true;
     buildMachines = [
       {
-        hostName = "192.168.193.24";
+        hostName = "100.64.0.3";
         protocol = "ssh-ng";
         sshUser = "ry";
         system = "x86_64-linux";
