@@ -47,7 +47,7 @@ in {
       packages = with pkgs; [
         (pkgs.callPackage ./iosevka-fixed.nix {})
         noto-fonts
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         nerd-fonts.symbols-only
         noto-fonts-cjk-sans # for Chinese, Japanese, and Korean
       ];
