@@ -2,6 +2,7 @@
   inputs,
   config,
   lib,
+  pkgs,
   ...
 }: let
   inherit (lib) mkOption mkIf;
@@ -68,7 +69,10 @@ in {
             markdown.enable = true;
             bash.enable = true;
             java.enable = true;
-            ts.enable = true;
+            ts = {
+              enable = true;
+              format.package = pkgs.prettierd;
+            };
             nix = {
               enable = true;
               lsp.server = "nixd";
