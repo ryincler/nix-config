@@ -4,5 +4,6 @@
     ./openssh
     ./nginx
     ./sunshine
+    ./tlp
   ];
 }
