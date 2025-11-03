@@ -49,12 +49,6 @@ in {
     };
   };
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      moonlight-qt = optimizeNormalFlags prev.moonlight-qt;
-    })
-  ];
-
   documentation = {
     dev.enable = true;
   };
