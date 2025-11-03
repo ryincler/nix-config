@@ -34,6 +34,14 @@ in {
     };
     services = {
       openssh.enable = true;
+      tlp = {
+        enable = true;
+        limitCharge = {
+          enable = true;
+          stopCharge = 80;
+          startCharge = 65;
+        };
+      };
     };
     gui.themes.fontconfig = {
       enable = true;
