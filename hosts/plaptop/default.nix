@@ -16,6 +16,8 @@ in {
     ./hardware-configuration.nix
   ];
 
+  fileSystems."/".options = ["compress=zstd"];
+
   modules = {
     hardware.gpu.intel.enable = true;
     networking = {
