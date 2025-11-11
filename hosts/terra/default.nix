@@ -10,6 +10,8 @@ in {
     ./system.nix
   ];
 
+  fileSystems."/".options = ["compress=zstd"];
+
   modules = {
     networking = {
       tailscale.enable = true;
@@ -19,6 +21,7 @@ in {
     services = {
       openssh.enable = true;
       sunshine.enable = true;
+      login.greetd.enable = true;
     };
 
     hardware.gpu.amd.enable = true;
@@ -150,19 +153,6 @@ in {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
-    };
-
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd}/bin/agreety --cmd hyprland";
-        };
-        initial_session = {
-          command = "hyprland";
-          user = "ry";
-        };
-      };
     };
 
     pipewire = {
