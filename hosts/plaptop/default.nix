@@ -124,6 +124,9 @@ in {
       moonlight-qt
       ripgrep
     ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+ChTqbCdjAugSOma7mRYN1fUTUgd4YmCcFcB+4CGoL"
+    ];
   };
 
   # Allow unfree packages
