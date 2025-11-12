@@ -47,7 +47,10 @@ in {
             blink-cmp.enable = true;
           };
           snippets.luasnip.enable = true;
-          lsp.enable = true;
+          lsp = {
+            enable = true;
+            formatOnSave = true;
+          };
           syntaxHighlighting = true;
 
           options = {
@@ -71,11 +74,13 @@ in {
             java.enable = true;
             ts = {
               enable = true;
-              format.package = pkgs.prettierd;
             };
             nix = {
               enable = true;
-              lsp.server = "nixd";
+              lsp.servers = [
+                "nil"
+                "nixd"
+              ];
               treesitter.enable = true;
             };
           };
