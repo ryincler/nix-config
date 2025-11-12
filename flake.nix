@@ -17,7 +17,10 @@
 
     swww.url = "github:lgfae/swww";
 
-    nvf.url = "github:notashelf/nvf";
+    nvf = {
+      url = "github:notashelf/nvf/v0.8";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     aagl.url = "github:ezkea/aagl-gtk-on-nix";
 
