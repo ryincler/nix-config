@@ -1,10 +1,10 @@
 {
   imports = [
+    ./common
     ./programs
     ./networking
     ./hardware
     ./display
-    ./nix
     ./gui
     ./services
     ./security
