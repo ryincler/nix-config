@@ -5,7 +5,6 @@
 }: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.modules.services.openssh;
-
 in {
   options = {
     modules.services.openssh = {
@@ -19,9 +18,11 @@ in {
       openFirewall = true;
       settings = {
         PermitRootLogin = "no";
+        ChallengeResponseAuthentication = "no";
         PasswordAuthentication = false;
+        AuthenticationMethods = "publickey";
+        UsePAM = false;
       };
     };
   };
-
 }
