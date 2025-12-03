@@ -53,9 +53,18 @@ in {
 
   nix = {
     settings = {
-      system-features = ["benchmark" "big-parallel" "kvm" "nixos-test" "gccarch-znver4"];
+      system-features = [
+        "benchmark"
+        "big-parallel"
+        "kvm"
+        "nixos-test"
+        "gccarch-znver4"
+      ];
 
-      trusted-users = ["root" "ry"];
+      trusted-users = [
+        "root"
+        "ry"
+      ];
     };
   };
 
@@ -91,7 +100,14 @@ in {
   users.users.ry = {
     isNormalUser = true;
     description = "ry";
-    extraGroups = ["video" "networkmanager" "wheel" "input" "libvirtd" "corectrl"];
+    extraGroups = [
+      "video"
+      "networkmanager"
+      "wheel"
+      "input"
+      "libvirtd"
+      "corectrl"
+    ];
     packages = with pkgs; [
       ani-cli
       vesktop
@@ -116,6 +132,8 @@ in {
     git
     ripgrep
     ffmpeg
+    nautilus
+    easyeffects
   ];
 
   networking.firewall.enable = false;
@@ -146,8 +164,6 @@ in {
   console.useXkbConfig = true;
 
   services = {
-    # Printing
-    printing.enable = true;
     # Network setup for autodiscovery of network printers
     avahi = {
       enable = true;
@@ -163,6 +179,10 @@ in {
       pulse.enable = true;
     };
   };
+
+  # for pipewire realtime priority scheduling
+  # TODO: move to a common module for sound
+  security.rtkit.enable = true;
 
   qt.style = ["adwaita-dark"];
 }
