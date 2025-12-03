@@ -4,6 +4,7 @@
     settings = {
       experimental-features = ["flakes" "nix-command"];
       auto-optimise-store = true;
+      use-xdg-base-directories = true;
     };
   };
 }
