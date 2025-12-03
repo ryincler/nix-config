@@ -24,8 +24,10 @@
     programs = {
       editors.neovim.enable = true;
       terminal.foot.enable = true;
+      gaming.steam.enable = true;
     };
     services = {
+      login.greetd.enable = true;
       openssh.enable = true;
       tlp = {
         enable = true;
@@ -110,6 +112,7 @@
       btop
       moonlight-qt
       ripgrep
+      easyeffects
     ];
   };
 
@@ -154,15 +157,6 @@
 
   services = {
     blueman.enable = true;
-
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd}/bin/agreety --cmd niri-session";
-        };
-      };
-    };
 
     pipewire = {
       enable = true;
