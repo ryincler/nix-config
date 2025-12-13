@@ -31,6 +31,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSxUf9mWU31pwhiPrm6lbX0ap2RJH0sLEU9NuSP8Es3 ry@plaptop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBroVMo8P/KrE3i1P3pw23ehKZlasyFWGpG6naF4N5bl ry@terra"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICqCDMsR975q4oDsDDP7pzZV+PTrB4rXJwehQsn4ugmk ry@yamada"
     ];
   };
   environment.systemPackages = with pkgs; [
