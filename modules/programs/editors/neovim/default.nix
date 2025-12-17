@@ -46,9 +46,15 @@ in {
           autocomplete = {
             blink-cmp.enable = true;
           };
+
+          tabline.nvimBufferline.enable = true;
+
+          binds.whichKey.enable = true;
+
           snippets.luasnip.enable = true;
           lsp = {
             enable = true;
+            otter-nvim.enable = true;
             formatOnSave = true;
           };
           syntaxHighlighting = true;
