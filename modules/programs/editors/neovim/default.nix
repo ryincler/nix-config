@@ -55,7 +55,7 @@ in {
           lsp = {
             enable = true;
             otter-nvim.enable = true;
-            formatOnSave = true;
+            formatOnSave = false;
           };
           syntaxHighlighting = true;
 
