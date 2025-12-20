@@ -14,22 +14,49 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/3ac72e62-04e9-471f-8a78-af62d69ce849";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/8a31d816-a8bd-438c-ae14-5e74b7bf768c";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/8a31d816-a8bd-438c-ae14-5e74b7bf768c";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/8a31d816-a8bd-438c-ae14-5e74b7bf768c";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/CADD-7790";
+    { device = "/dev/disk/by-uuid/1672-F200";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  fileSystems."/srv" =
+    { device = "/dev/disk/by-uuid/97c67230-3a99-468c-bb4f-570398591fe4";
+      fsType = "btrfs";
+      options = [ "subvol=toplevel" ];
     };
 
   fileSystems."/srv/storage" =
-    { device = "/dev/disk/by-uuid/fd8b7dd7-ba8a-47ff-8c65-729ba1148c1e";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/97c67230-3a99-468c-bb4f-570398591fe4";
+      fsType = "btrfs";
+      options = [ "subvol=storage" ];
     };
 
   swapDevices = [ ];
+
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp0s6.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }

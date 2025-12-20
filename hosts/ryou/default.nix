@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./system.nix
+    ./fs.nix
   ];
 
   modules = {
@@ -41,6 +42,7 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [443];
+    # TODO: add these ports to the modules that use them (acme, nginx, etc.)
+    allowedTCPPorts = [80 443];
   };
 }
