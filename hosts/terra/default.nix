@@ -10,6 +10,7 @@ in {
     ./system.nix
   ];
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   fileSystems."/".options = ["compress=zstd"];
 
   modules = {
@@ -26,7 +27,6 @@ in {
 
     hardware.gpu.amd.enable = true;
     display.wm.wayland = {
-      hyprland.enable = true;
       niri = {
         enable = true;
         xwayland.enable = true;
@@ -81,7 +81,9 @@ in {
     );
     */
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [];
+    kernelParams = [
+      "nvme_core.default_ps_max_latency_us=0"
+    ];
 
     # Bootloader
     loader = {
