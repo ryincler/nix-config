@@ -113,8 +113,6 @@ in {
       ani-cli
       vesktop
       mpv
-      lutris
-      prismlauncher
     ];
 
     openssh.authorizedKeys.keys = [
