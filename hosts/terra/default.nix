@@ -82,7 +82,6 @@ in {
     */
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
-      "nvme_core.default_ps_max_latency_us=0"
     ];
 
     # Bootloader
