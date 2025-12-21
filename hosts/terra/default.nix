@@ -11,7 +11,7 @@ in {
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  fileSystems."/".options = ["compress=zstd"];
+  fileSystems."/nix".options = ["noatime"];
 
   modules = {
     networking = {
