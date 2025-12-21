@@ -26,10 +26,15 @@
     ];
   };
 
+  initialSession = {
+    user = "ry";
+    command = "niri-session";
+  };
 in {
   options = {
     modules.services.login.greetd = {
       enable = mkEnableOption "Greetd with tuigreet";
+      autoLogin = mkEnableOption "Login without authentication on the first boot";
     };
   };
   config = mkIf cfg.enable {
@@ -37,8 +42,8 @@ in {
       enable = true;
       settings = {
         default_session = defaultSession;
+        initial_session = initialSession;
       };
     };
   };
 }
-
