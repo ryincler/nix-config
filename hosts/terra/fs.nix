@@ -1,0 +1,5 @@
+{
+  fileSystems = {
+    "/nix".options = ["noatime"];
+  };
+}

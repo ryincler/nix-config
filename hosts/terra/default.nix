@@ -8,10 +8,10 @@ in {
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./system.nix
+    ./fs.nix
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  fileSystems."/nix".options = ["noatime"];
 
   modules = {
     networking = {
