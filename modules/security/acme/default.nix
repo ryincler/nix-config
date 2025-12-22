@@ -17,6 +17,7 @@ in {
       defaults.email = "ryincler@proton.me";
     };
 
+    # Uses port 80 for ACME HTTP-01 challenges
+    networking.firewall.allowedTCPPorts = [80];
   };
-
 }
