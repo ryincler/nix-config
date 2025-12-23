@@ -12,6 +12,7 @@
   modules = {
     hardware.gpu.amd.enable = true;
     networking = {
+      firewall.enable = true;
       tailscale.enable = true;
       networkmanager.enable = true;
     };
@@ -34,7 +35,7 @@
         limitCharge = {
           enable = true;
           stopCharge = 80;
-          startCharge = 65;
+          startCharge = 70;
         };
       };
     };
@@ -78,7 +79,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
 
-    kernelParams = [ ];
+    kernelParams = [];
 
     # Bootloader
     loader = {
@@ -107,12 +108,15 @@
       firefox
       fuzzel
       vesktop
+      equibop
       mpv
       acpi
-      btop
+      btop-rocm
       moonlight-qt
       ripgrep
       easyeffects
+      alsa-utils
+      qpwgraph
     ];
   };
 
@@ -128,8 +132,6 @@
     nautilus
   ];
 
-  networking.firewall.enable = false;
-
   programs = {
     wireshark = {
       enable = true;
@@ -143,13 +145,13 @@
     localsend = {
       enable = true;
     };
-
-    nano.enable = false;
   };
 
   console.useXkbConfig = true;
 
   hardware = {
+    alsa.enablePersistence = true;
+
     bluetooth = {
       enable = true;
     };
@@ -169,4 +171,3 @@
 
   qt.style = ["adwaita-dark"];
 }
-
