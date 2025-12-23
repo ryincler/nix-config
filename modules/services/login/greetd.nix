@@ -42,7 +42,7 @@ in {
       enable = true;
       settings = {
         default_session = defaultSession;
-        initial_session = initialSession;
+        initial_session = mkIf cfg.autoLogin initialSession;
       };
     };
   };
