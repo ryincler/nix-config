@@ -3,5 +3,6 @@
     ./zerotierone
     ./tailscale
     ./networkmanager
+    ./firewall
   ];
 }
