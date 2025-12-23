@@ -16,6 +16,7 @@ in {
       enable = true;
       permitCertUid = "root";
       useRoutingFeatures = mkDefault "both";
+      disableUpstreamLogging = true;
       openFirewall = true;
     };
   };
