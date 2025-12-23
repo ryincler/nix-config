@@ -18,7 +18,7 @@ in {
         };
         startCharge = mkOption {
           type = lib.types.ints.between 0 99;
-          default = 65;
+          default = 70;
           description = "Percent charge threshold to start charging.";
         };
       };
