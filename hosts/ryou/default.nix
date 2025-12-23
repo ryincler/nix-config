@@ -12,7 +12,10 @@
       nginx.enable = true;
       headscale.enable = true;
     };
-    networking.tailscale.enable = true;
+    networking = {
+      tailscale.enable = true;
+      firewall.enable = true;
+    };
   };
 
   nix.settings = {
@@ -39,10 +42,4 @@
     git
     neovim
   ];
-
-  networking.firewall = {
-    enable = true;
-    # TODO: add these ports to the modules that use them (acme, nginx, etc.)
-    allowedTCPPorts = [80 443];
-  };
 }
