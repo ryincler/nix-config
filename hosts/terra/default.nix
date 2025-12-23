@@ -15,6 +15,7 @@ in {
 
   modules = {
     networking = {
+      firewall.enable = true;
       tailscale.enable = true;
       networkmanager.enable = true;
     };
@@ -134,8 +135,6 @@ in {
     nautilus
     easyeffects
   ];
-
-  networking.firewall.enable = false;
 
   virtualisation.libvirtd.enable = true;
 
