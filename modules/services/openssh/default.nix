@@ -16,6 +16,7 @@ in {
     services.openssh = {
       enable = true;
       openFirewall = true;
+      ports = [30];
       settings = {
         PermitRootLogin = "no";
         ChallengeResponseAuthentication = "no";
