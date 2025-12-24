@@ -23,7 +23,10 @@ in {
     services = {
       openssh.enable = true;
       sunshine.enable = true;
-      login.greetd.enable = true;
+      login.greetd = {
+        enable = true;
+        autoLogin = true;
+      };
     };
 
     hardware.gpu.amd.enable = true;
