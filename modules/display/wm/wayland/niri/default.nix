@@ -7,21 +7,17 @@
 }: let
   inherit (lib) mkEnableOption mkIf;
   cfg = config.modules.display.wm.wayland.niri;
-  niriPkg = pkgs.niri-unstable;
+  niriPkg = pkgs.niri;
 in {
-  imports = [inputs.niri-flake.nixosModules.niri];
   options.modules.display.wm.wayland.niri = {
       enable = mkEnableOption "niri";
       xwayland.enable = mkEnableOption "XWayland in Niri.";
   };
   config = mkIf cfg.enable {
-    nixpkgs.overlays = [inputs.niri-flake.overlays.niri];
     programs.niri = {
       enable = true;
       package = niriPkg;
     };
-
-    niri-flake.cache.enable = true;
 
     environment = {
       systemPackages = with pkgs; [
@@ -44,6 +40,29 @@ in {
         xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
       ];
+    };
+
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+
+    security.polkit.enable = true;
+    systemd.user.services.niri-polkit = {
+      description = "PolicyKit Authentication Agent";
+      wantedBy = [ "niri.service" ];
+      after = [ "graphical-session.target" ];
+      partOf = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
     };
   };
 }

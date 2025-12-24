@@ -23,7 +23,5 @@
     };
 
     aagl.url = "github:ezkea/aagl-gtk-on-nix";
-
-    niri-flake.url = "github:sodiboo/niri-flake";
   };
 }
