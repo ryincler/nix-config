@@ -9,8 +9,8 @@
   monoFont = "Iosevka Fixed";
 in {
   options.modules.gui.themes.fontconfig = {
-    enable = mkEnableOption "fonts";
-    useMonoEverywhere = mkEnableOption "use mono fonts everywhere";
+    enable = mkEnableOption "custom font config";
+    useMonoEverywhere = mkEnableOption "mono fonts everywhere";
   };
 
   config = mkIf cfg.enable {
