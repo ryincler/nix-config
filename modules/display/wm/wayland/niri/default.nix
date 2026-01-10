@@ -26,7 +26,7 @@ in {
         fuzzel
         xdg-utils
         brightnessctl
-        inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
+        swww
       ] ++ lib.optionals cfg.xwayland.enable [xwayland-satellite];
 
       sessionVariables.NIXOS_OZONE_WL = "1";

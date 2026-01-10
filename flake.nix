@@ -9,16 +9,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-    };
-
-    swww.url = "github:lgfae/swww";
-
     nvf = {
-      url = "github:notashelf/nvf/v0.8";
+      url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

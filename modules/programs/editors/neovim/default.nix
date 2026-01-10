@@ -20,6 +20,9 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # remove the default vim editor
+    programs.vim.enable = false;
+
     environment.sessionVariables = {
       "EDITOR" = "nvim";
     };
